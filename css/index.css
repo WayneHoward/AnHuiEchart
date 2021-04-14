@@ -99,7 +99,7 @@ body {
 }
 .left-part {
   width: 26%;
-  min-width: 26%;
+  min-width: 325px;
   height: 100%;
 }
 .left-part .top-chart {
