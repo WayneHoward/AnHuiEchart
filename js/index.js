@@ -13,7 +13,7 @@ $(function () {
                 textStyle: {
                     fontWeight: "normal",
                     color: "#6087a6",
-                    fontSize: 16
+                    fontSize: 14
                 }
             },
             // tooltip: {
@@ -75,7 +75,7 @@ $(function () {
                                 position: "center",
                                 show: true,
                                 textStyle: {
-                                    fontSize: "31",
+                                    fontSize: "22",
                                     fontWeight: "bold",
                                     color: "#6087a6"
                                 },
@@ -362,7 +362,12 @@ $(function () {
                 min: 0,
                 max: 100,
                 name: '可算率',
-                radius: '50%',
+                title: {
+                    offsetCenter: [0, '40%'], // x, y，单位px
+                    fontSize: 12,
+                    color: '#90a5ba',
+                },
+                radius: '65',
                 progress: {
                     show: true,
                     width: 25
@@ -414,26 +419,43 @@ $(function () {
                         borderWidth: 10
                     }
                 },
-                title: {
-                    offsetCenter: [0, '40%'], // x, y，单位px
-                    fontSize: 12,
-                    color: '#90a5ba',
-                },
                 detail: {
+                    show: true,
                     valueAnimation: true,
                     fontSize: 14,
                     offsetCenter: [0, '70%'],
-                    formatter: function (value, index) {           
-                        return value.toFixed(1) + '%';      
+                    // formatter: function (value) {           
+                    //     return value.toFixed(1) + '%';  
+                    // },
+                    formatter: [
+                        '{value}%',
+                        '{a|得分：}' + calculatedRate.point + '{b| 分}',
+                    ].join('\n'),
+                    rich: {
+                        a: {
+                            fontSize: 12,
+                            color: '#90a5ba',
+                            lineHeight: 60
+                        },
+                        b: {
+                            fontSize: 12,
+                            color: '#90a5ba',
+                        }
                     },
-                    offsetCenter: [0, '-20%'],
+                    // offsetCenter: [0, '-20%'],
                     color: "#90a5ba",
                     fontWeight: 'bolder',
                 },
                 data: [
                     {
+                        name: '可算率',
                         value: calculatedRate.value,
-                        name: '得分：' + calculatedRate.point + '分'
+                        title: {
+                            offsetCenter: ['0%', '-130%']
+                        },
+                        detail: {
+                            offsetCenter: ['0%', '25%']
+                        }
                     },
                 ]
             },
@@ -444,8 +466,13 @@ $(function () {
                 endAngle: 0,
                 min: 0,
                 max: 100,
-                name: '可算率',
-                radius: '50%',
+                name: '达标率',
+                title: {
+                    offsetCenter: [0, '40%'], // x, y，单位px
+                    fontSize: 12,
+                    color: '#90a5ba',
+                },
+                radius: '65',
                 progress: {
                     show: true,
                     width: 25
@@ -497,29 +524,46 @@ $(function () {
                         borderWidth: 10
                     }
                 },
-                title: {
-                    offsetCenter: [0, '40%'], // x, y，单位px
-                    fontSize: 12,
-                    color: '#90a5ba',
-                },
                 detail: {
+                    show: true,
                     valueAnimation: true,
                     fontSize: 14,
                     offsetCenter: [0, '70%'],
-                    formatter: function (value, index) {           
-                        return value.toFixed(1) + '%';      
+                    // formatter: function (value) {           
+                    //     return value.toFixed(1) + '%';  
+                    // },
+                    formatter: [
+                        '{value}%',
+                        '{a|得分：}' + complianceRate.point + '{b| 分}',
+                    ].join('\n'),
+                    rich: {
+                        a: {
+                            fontSize: 12,
+                            color: '#90a5ba',
+                            lineHeight: 60
+                        },
+                        b: {
+                            fontSize: 12,
+                            color: '#90a5ba',
+                        }
                     },
-                    offsetCenter: [0, '-20%'],
+                    // offsetCenter: [0, '-20%'],
                     color: "#90a5ba",
                     fontWeight: 'bolder',
                 },
                 data: [
                     {
+                        name: '达标率',
                         value: complianceRate.value,
-                        name: '得分：' + complianceRate.point + '分'
+                        title: {
+                            offsetCenter: ['0%', '-130%'],
+                        },
+                        detail: {
+                            offsetCenter: ['0%', '25%']
+                        }
                     },
                 ]
-            }
+            },
             ]
         };
         provincialIndicators.setOption(provincialIndicatorsOption);
