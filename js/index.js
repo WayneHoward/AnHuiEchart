@@ -1,6 +1,11 @@
 $(function () {
     // 数据健康度
     let dataHealth = echarts.init(document.getElementById('data-health'));
+    $.get('./../data/dataHealth.json', function (res){
+        console.log(res.dataHealth);
+        let finished = res.dataHealth.finished;
+        let unFinished = res.dataHealth.unfinished;
+
     let dataHealthOption = {
         title: {
             text: "达标率",
@@ -100,20 +105,21 @@ $(function () {
 
     // 变压器数据异常
     let transformerAbnormalData = echarts.init(document.getElementById('transformer-abnormal-data'));
-    transformerAbnormalDataOption = {
-        title: {
-            // text: '同名数量统计',
-            // subtext: '纯属虚构',
-            // left: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)'
-        },
-        legend: {
-            type: 'scroll',
-            orient: 'vertical',
-            icon: 'rect', // 图例形状
+    $.get('./../data/transformerAbnormalDataOption.json', function (res){
+        let transformerAbnormalDataOption = {
+            title: {
+                // text: '同名数量统计',
+                // subtext: '纯属虚构',
+                // left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                type: 'scroll',
+                orient: 'vertical',
+                icon: 'rect', // 图例形状
             itemWidth: 12, // 图例图形宽度
             itemHeight: 12,
             right: 20,
@@ -129,11 +135,11 @@ $(function () {
         series: [{
             name: '城市',
             type: 'pie',
-            radius: '70%',
-            center: ['40%', '50%'],
-            data: [{
-                    value: 1340,
-                    name: '合肥',
+                radius: '60%',
+                center: ['40%', '50%'],
+                data: [{
+                        value: 1340,
+                        name: '合肥',
                     itemStyle: {
                         color: '#20939a'
                     }
@@ -382,8 +388,8 @@ $(function () {
     laydate.render({
         elem: '#calendarModel' //指定元素
     });
-    var mapDisplay = echarts.init(document.getElementById('map-display'));
-    $.get('./../js/map.json', function (geoJson) {
+    let mapDisplay = echarts.init(document.getElementById('map-display'));
+    $.get('./../data/map.json', function (geoJson) {
         echarts.registerMap('AH', geoJson, {});
         var mapDisplayOption = {
             tooltip: {
@@ -530,21 +536,22 @@ $(function () {
 
     // 全省指标情况
     let provincialIndicators = echarts.init(document.getElementById('provincial-indicators'));
-    provincialIndicatorsOption = {
-        // title : {  //标题组件
-        //     show: false,
-        //     text: '可算率',
-        //     textStyle:{
-        //         color: '#90a5ba',  //文字颜色
-        // 　　　　 fontSize: 16, //字体大小
-        //     },
-        //     x:'center',
-        //     // bottom: 40,
-        //     top: 30
-        // },
-        series: [
-        {
-            type: 'gauge',
+    $.get('./../data/provincialIndicators.json', function (res) {
+        let provincialIndicatorsOption = {
+            // title : {  //标题组件
+            //     show: false,
+            //     text: '可算率',
+            //     textStyle:{
+            //         color: '#90a5ba',  //文字颜色
+            // 　　　　 fontSize: 16, //字体大小
+            //     },
+            //     x:'center',
+            //     // bottom: 40,
+            //     top: 30
+            // },
+            series: [
+            {
+                type: 'gauge',
             center: ["25%", "65%"], // 仪表位置
             startAngle: 180,
             endAngle: 0,
@@ -714,6 +721,7 @@ $(function () {
     provincialIndicators.setOption(provincialIndicatorsOption);
 
     // 数据匹配情况
+    $.get('./../data/dataMatching.json', function (res) {
     let datTable = document.getElementById('data-matching-table');
 
     // 变压器 总数量
