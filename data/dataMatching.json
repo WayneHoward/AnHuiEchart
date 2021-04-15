@@ -1,0 +1,19 @@
+{
+    "transformerTotal": 1502,
+    
+    "transformerNotMatched": 2,
+
+    "transformerMismatch": 12,
+
+    "transmissionTotal": 3522,
+
+    "transmissionNotMatched": 3,
+
+    "transmissionNotMismatch": 13,
+    
+    "stationTotal": 355,
+
+    "stationNotMatched": 0,
+    
+    "stationNotMismatch": 5
+}

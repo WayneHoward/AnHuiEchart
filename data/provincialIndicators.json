@@ -1,0 +1,10 @@
+{
+    "calculatedRate": {
+        "value": 28.6,
+        "point": 5
+    },
+    "complianceRate": {
+        "value": 70,
+        "point": 10
+    }
+}

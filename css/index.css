@@ -28,22 +28,49 @@ dd {
 html,
 body {
   height: 100%;
-  min-height: 1235px;
+  width: 100%;
+}
+@media screen and (max-width: 1440px) {
+  .title {
+    font-size: 10px !important;
+    height: 28px !important;
+    line-height: 28px !important;
+  }
+  .title::before {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  .title::after {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  .title .bottom-corner-box::before {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  .title .bottom-corner-box::after {
+    width: 6px !important;
+    height: 6px !important;
+  }
+}
+@media screen and (min-width: 1650px) {
+}
+@media screen and (max-height: 850px) {
 }
 .box {
   background-image: url('../images/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  min-width: 1200px;
+  width: 100%;
+  min-width: 1024px;
   box-sizing: border-box;
   padding: 21px 19px 18px 19px;
   height: 100%;
-  min-height: 1235px;
   display: flex;
+  flex-direction: column;
 }
 .title {
   width: 100%;
-  min-width: 325px;
   height: 48px;
   line-height: 48px;
   border: 1px solid #134F98;
@@ -97,59 +124,50 @@ body {
   right: -1px;
   bottom: -1px;
 }
-.left-part {
-  width: 26%;
-  min-width: 325px;
-  height: 100%;
-}
-.left-part .top-chart {
-  margin-bottom: 14px;
-}
-.left-part .top-chart #data-health {
-  width: 100%;
-  height: 340px;
-  box-sizing: border-box;
-  border: 1px solid;
-  border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  border-image: -moz-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  border-image: linear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.2) inset;
-}
-.left-part .middle-chart {
-  margin-bottom: 14px;
-}
-.left-part .middle-chart #transformer-abnormal-data {
-  width: 100%;
-  height: 340px;
-  box-sizing: border-box;
-  border: 1px solid;
-  border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  border-image: -moz-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  border-image: linear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.2) inset;
-}
-.left-part .bottom-chart #transmission-line-abnormal-data {
-  width: 100%;
-  height: 340px;
-  box-sizing: border-box;
-  border: 1px solid;
-  border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  border-image: -moz-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  border-image: linear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
-  box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.2) inset;
-}
-.right-part {
-  width: 73%;
-  height: 100%;
-  margin-left: 14px;
-}
-.right-part .top-part {
+/* ***************************************** 上部分 */
+.top-part {
+  flex: 2;
   display: flex;
+  margin-bottom: 14px;
+  /* ***************************************** 左边图表 */
+  /* ***************************************** 中间图表 */
+  /* ***************************************** 右边图表 */
 }
-.right-part .top-part .map {
-  width: 64%;
-  height: 794px;
+.top-part .left-chart {
+  width: 306px;
   margin-right: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.top-part .left-chart .chart-bottom-corner-box,
+.top-part .left-chart .chart-transformer-abnormal-data {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.top-part .left-chart .chart-bottom-corner-box #data-health,
+.top-part .left-chart .chart-transformer-abnormal-data #data-health,
+.top-part .left-chart .chart-bottom-corner-box #transformer-abnormal-data,
+.top-part .left-chart .chart-transformer-abnormal-data #transformer-abnormal-data {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
+  border-image: -moz-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
+  border-image: linear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
+  box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.2) inset;
+}
+.top-part .left-chart .chart-bottom-corner-box #data-health,
+.top-part .left-chart .chart-transformer-abnormal-data #data-health {
+  margin-bottom: 14px;
+}
+.top-part .center-chart {
+  flex: 1;
+  margin-right: 14px;
+}
+.top-part .center-chart .map {
+  height: 100%;
   box-sizing: border-box;
   border: 1px solid;
   border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
@@ -158,111 +176,158 @@ body {
   box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.2) inset;
   position: relative;
 }
-.right-part .top-part .map .calendar {
+.top-part .center-chart .map .calendar {
   position: absolute;
-  top: 40px;
-  left: 30px;
+  top: 23px;
+  left: 17px;
   z-index: 99;
 }
-.right-part .top-part .map .calendar span {
-  font-size: 15px;
+.top-part .center-chart .map .calendar span {
+  font-size: 12px;
   color: #c1edf8;
 }
-.right-part .top-part .map .calendar input {
-  text-indent: 15px;
-  width: 120px;
-  height: 28px;
+.top-part .center-chart .map .calendar input {
+  font-size: 12px;
+  text-indent: 9px;
+  width: 100px;
+  height: 18px;
   box-sizing: border-box;
   color: #fff;
   border: 1px solid #19519b;
   background-color: rgba(0, 0, 0, 0);
 }
-.right-part .top-part .map #map-display {
+.top-part .center-chart .map #map-display {
   height: 100%;
   width: 100%;
 }
-.right-part .top-part .aside-right .provincial-indicators {
-  margin-bottom: 14px;
-  position: relative;
+.top-part .right-chart {
+  width: 306px;
+  display: flex;
+  flex-direction: column;
 }
-.right-part .top-part .aside-right .provincial-indicators #provincial-indicators {
+.top-part .right-chart .provincial-indicators,
+.top-part .right-chart .data-matching {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.top-part .right-chart .provincial-indicators #provincial-indicators,
+.top-part .right-chart .data-matching #provincial-indicators {
   width: 100%;
-  height: 340px;
+  height: 100%;
   box-sizing: border-box;
   border: 1px solid;
   border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
   border-image: -moz-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
   border-image: linear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
   box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.2) inset;
-  display: flex;
 }
-.right-part .top-part .aside-right .provincial-indicators .calculated-rate {
+.top-part .right-chart .provincial-indicators .calculated-rate,
+.top-part .right-chart .data-matching .calculated-rate {
   position: absolute;
-  top: 100px;
-  left: 95px;
-  font-size: 20px;
+  top: 75px;
+  left: 55px;
+  font-size: 12px;
   color: #90a5ba;
 }
-.right-part .top-part .aside-right .provincial-indicators .compliance-rate {
+.top-part .right-chart .provincial-indicators .compliance-rate,
+.top-part .right-chart .data-matching .compliance-rate {
   position: absolute;
-  top: 100px;
-  right: 105px;
-  font-size: 20px;
+  top: 75px;
+  right: 60px;
+  font-size: 12px;
   color: #90a5ba;
 }
-.right-part .top-part .aside-right .data-matching {
-  margin-bottom: 14px;
-}
-.right-part .top-part .aside-right .data-matching table {
+.top-part .right-chart .provincial-indicators table,
+.top-part .right-chart .data-matching table {
   table-layout: fixed;
   word-break: break-all;
   word-wrap: break-word;
 }
-.right-part .top-part .aside-right .data-matching #data-matching {
+.top-part .right-chart .provincial-indicators #data-matching,
+.top-part .right-chart .data-matching #data-matching {
   width: 100%;
-  height: 340px;
+  height: 100%;
   box-sizing: border-box;
   border: 1px solid;
   border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
   border-image: -moz-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
   border-image: linear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
   box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.2) inset;
-  padding: 40px 35px;
+  padding: 15px 15px;
 }
-.right-part .top-part .aside-right .data-matching #data-matching #data-matching-table {
+.top-part .right-chart .provincial-indicators #data-matching #data-matching-table,
+.top-part .right-chart .data-matching #data-matching #data-matching-table {
   text-align: center;
-  min-width: 325px;
-  width: 447px;
-  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
 }
-.right-part .top-part .aside-right .data-matching #data-matching #data-matching-table thead {
+.top-part .right-chart .provincial-indicators #data-matching #data-matching-table thead,
+.top-part .right-chart .data-matching #data-matching #data-matching-table thead {
   width: 119px;
 }
-.right-part .top-part .aside-right .data-matching #data-matching #data-matching-table thead tr {
-  height: 44px;
+.top-part .right-chart .provincial-indicators #data-matching #data-matching-table thead tr,
+.top-part .right-chart .data-matching #data-matching #data-matching-table thead tr {
   color: #90a5ba;
 }
-.right-part .top-part .aside-right .data-matching #data-matching #data-matching-table tbody tr {
-  height: 71px;
-}
-.right-part .top-part .aside-right .data-matching #data-matching #data-matching-table tbody tr > td:nth-child(1) {
+.top-part .right-chart .provincial-indicators #data-matching #data-matching-table tbody tr > td:nth-child(1),
+.top-part .right-chart .data-matching #data-matching #data-matching-table tbody tr > td:nth-child(1) {
   color: #90a5ba;
 }
-.right-part .top-part .aside-right .data-matching #data-matching #data-matching-table tbody tr > td:nth-child(2) {
+.top-part .right-chart .provincial-indicators #data-matching #data-matching-table tbody tr > td:nth-child(2),
+.top-part .right-chart .data-matching #data-matching #data-matching-table tbody tr > td:nth-child(2) {
   color: #20939a;
 }
-.right-part .top-part .aside-right .data-matching #data-matching #data-matching-table tbody tr > td:nth-child(3) {
+.top-part .right-chart .provincial-indicators #data-matching #data-matching-table tbody tr > td:nth-child(3),
+.top-part .right-chart .data-matching #data-matching #data-matching-table tbody tr > td:nth-child(3) {
   color: #1395eb;
 }
-.right-part .top-part .aside-right .data-matching #data-matching #data-matching-table tbody tr > td:nth-child(4) {
+.top-part .right-chart .provincial-indicators #data-matching #data-matching-table tbody tr > td:nth-child(4),
+.top-part .right-chart .data-matching #data-matching #data-matching-table tbody tr > td:nth-child(4) {
   color: #fd2800;
 }
-.right-part .bottom-part .all-units .title {
-  width: 100%;
+.top-part .right-chart .provincial-indicators {
+  margin-bottom: 14px;
+  position: relative;
 }
-.right-part .bottom-part .all-units #all-units {
+/* ***************************************** 上部分 */
+.bottom-part {
+  flex: 1;
+  display: flex;
+  /* ***************************************** 左边图表 */
+  /* ***************************************** 右边图表 */
+}
+.bottom-part .left-chart {
+  width: 306px;
+  margin-right: 14px;
+}
+.bottom-part .left-chart .chart-transmission-line-abnormal-data {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.bottom-part .left-chart .chart-transmission-line-abnormal-data #transmission-line-abnormal-data {
   width: 100%;
-  height: 340px;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
+  border-image: -moz-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
+  border-image: linear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
+  box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.2) inset;
+}
+.bottom-part .right-chart {
+  flex: 1;
+}
+.bottom-part .right-chart .all-units {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.bottom-part .right-chart .all-units #all-units {
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   border: 1px solid;
   border-image: -webkit-inear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;

@@ -14,84 +14,108 @@
 </style>
 <body>
     <div class="box">
-        <div class="left-part">
-            <div class="top-chart">
-                <div class="title">
-                    <div class="bottom-corner-box">数据健康度</div>
+        <!-- -------------------------上部分--------------- -->
+        <div class="top-part">
+
+            <!-- -----------------------------左边图表----------------- -->
+            <div class="left-chart">
+                <!-- ------------------------------数据健康度------------------ -->
+                <div class="chart-bottom-corner-box">
+                    <div class="title">
+                        <div class="bottom-corner-box">数据健康度</div>
+                    </div>
+                    <div class="content" id="data-health"></div>
                 </div>
-                <div class="content" id="data-health"></div>
-            </div>
-            <div class="middle-chart">
-                <div class="title">
-                    <div class="bottom-corner-box">变压器数据异常</div>
+                <!-- -----------------------------变压器数据异常-------------------- -->
+                <div class="chart-transformer-abnormal-data">
+                    <div class="title">
+                        <div class="bottom-corner-box">变压器数据异常</div>
+                    </div>
+                    <div class="content" id="transformer-abnormal-data"></div>
                 </div>
-                <div class="content" id="transformer-abnormal-data"></div>
             </div>
-            <div class="bottom-chart">
-                <div class="title">
-                    <div class="bottom-corner-box">输电线路数据异常</div>
-                </div>
-                <div class="content" id="transmission-line-abnormal-data"></div>
-            </div>
-        </div>
-        <div class="right-part">
-            <div class="top-part">
+
+            <!-- -----------------------------中间图表----------------- -->
+            <div class="center-chart">
+                <!-- -----------------------------地图-------------------- -->
                 <div class="map">
                     <div class="calendar">
                         <span>日期：</span><input type="text" id="calendarModel">
                     </div>
                     <div class="content" id="map-display"></div>
                 </div>
-                <div class="aside-right">
-                    <div class="provincial-indicators">
-                        <div class="title">
-                            <div class="bottom-corner-box">全省指标情况</div>
-                        </div>
-                        <div class="content" id="provincial-indicators">
-                        </div>
-                        <span class="calculated-rate">可算率</span>
-                        <span class="compliance-rate">达标率</span>
+            </div>
+
+            <!-- -----------------------------右边图表----------------- -->
+            <div class="right-chart">
+                <!-- -----------------------------全省指标情况-------------------- -->
+                <div class="provincial-indicators">
+                    <div class="title">
+                        <div class="bottom-corner-box">全省指标情况</div>
                     </div>
-                    <div class="data-matching">
-                        <div class="title">
-                            <div class="bottom-corner-box">数据匹配情况</div>
-                        </div>
-                        <div class="content" id="data-matching">
-                            <table id="data-matching-table" border="1" borderColor="#08244b" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <td>名称</td>
-                                        <td>总数量</td>
-                                        <td>未匹配</td>
-                                        <td>匹配错误</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>变压器</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>输电线路</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>变电站</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="content" id="provincial-indicators">
+                    </div>
+                    <span class="calculated-rate">可算率</span>
+                    <span class="compliance-rate">达标率</span>
+                </div>
+                <!-- -----------------------------数据匹配情况-------------------- -->
+                <div class="data-matching">
+                    <div class="title">
+                        <div class="bottom-corner-box">数据匹配情况</div>
+                    </div>
+                    <div class="content" id="data-matching">
+                        <table id="data-matching-table" border="1" borderColor="#08244b" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td>名称</td>
+                                    <td>总数量</td>
+                                    <td>未匹配</td>
+                                    <td>匹配错误</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>变压器</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>输电线路</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>变电站</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="bottom-part">
+        </div>
+
+        <!-- -------------------------下部分--------------- -->
+        <div class="bottom-part">
+
+            <!-- -------------------------左边图表--------------- -->
+            <div class="left-chart">
+                <!-- -----------------------------输电线路数据异常-------------------- -->
+                <div class="chart-transmission-line-abnormal-data">
+                    <div class="title">
+                        <div class="bottom-corner-box">输电线路数据异常</div>
+                    </div>
+                    <div class="content" id="transmission-line-abnormal-data"></div>
+                </div>
+            </div>
+
+            <!-- -------------------------右边图表--------------- -->
+            <div class="right-chart">
+                <!-- -----------------------------各单位可算率及达标率-------------------- -->
                 <div class="all-units">
                     <div class="title">
                         <div class="bottom-corner-box">各单位可算率及达标率</div>

@@ -1,3 +1,7 @@
+@echart-window-width: 100%;
+@echart-window-height: 100%;
+// @echart-window-parent-height: 20%;
+
 * {
     margin: 0;
     padding: 0;
@@ -34,25 +38,75 @@ dd {
 html,
 body {
     height: 100%;
-    min-height: 1235px;
+    width: 100%;
+    // min-height: 1235px;
+}
+
+@media screen and (max-width: 1440px) {
+    // .box {
+    //     padding: 10px !important;
+    // }
+    .title {
+        font-size: 10px !important;
+        height: 28px !important;
+        line-height: 28px !important;
+
+        &::before {
+            width: 6px !important;
+            height: 6px !important;
+        }
+        &::after {
+            width: 6px !important;
+            height: 6px !important;
+        }
+
+        .bottom-corner-box {
+            &::before {
+                width: 6px !important;
+                height: 6px !important;
+            }
+            &::after {
+                width: 6px !important;
+                height: 6px !important;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1650px) {
+    // .left-chart {
+    //     width: 420px !important;
+    // }
+}
+
+@media screen and (max-height:850px) {
+    // #data-matching-table {
+    //     thead tr {
+    //         height: 40px !important;
+    //     }
+    //     tbody tr {
+    //         height: 45px !important;
+    //     }
+    // }
 }
 
 .box {
     background-image: url('../images/bg.jpg'); 
     background-repeat: no-repeat;
     background-size: cover;
-    min-width: 1200px;
+    // min-width: 1200px;
+    width: 100%;
+    min-width: 1024px;
     box-sizing: border-box;
     padding: 21px 19px 18px 19px;
     height: 100%;
-    min-height: 1235px;
+    // min-height: 1235px;
     display: flex;
-    // flex: auto;
+    flex-direction: column;
 }
 
 .title {
     width: 100%;
-    min-width: 325px;
     height: 48px;
     line-height: 48px;
     border: 1px solid #134F98;
@@ -64,11 +118,7 @@ body {
     text-indent: 15px;
     margin-bottom: 2px;
     position: relative;
-    // background-image: url('./../images/title_bg.jpg');
     background-image: linear-gradient(to right, #1f3954 0%, #040f21 60%);
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-position: center;
 
     &::before {
         content: "";
@@ -117,73 +167,48 @@ body {
     }
 }
 
-.left-part {
-    width: 26%;
-    min-width: 325px;
-    height: 100%;
-    // min-height: 1200px;
-    // background-color: rgb(108, 108, 108);
+/* ***************************************** 上部分 */
+.top-part {
+    flex: 2;
+    display: flex;
+    margin-bottom: 14px;
 
-    .top-chart {
-        margin-bottom: 14px;
-
-        #data-health {
-            width: 100%;
-            height: 340px;
-            box-sizing: border-box;
-            border: 1px solid;
-            border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-            border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-            border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
-            box-shadow: 0 0 8px 4px rgba(#fff, .2) inset;
-        }
-    }
-
-    .middle-chart {
-        margin-bottom: 14px;
-
-        #transformer-abnormal-data {
-            width: 100%;
-            height: 340px;
-            box-sizing: border-box;
-            border: 1px solid;
-            border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-            border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-            border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
-            box-shadow: 0 0 8px 4px rgba(#fff, .2) inset;
-        }
-    }
-
-    .bottom-chart {
-        #transmission-line-abnormal-data {
-            width: 100%;
-            height: 340px;
-            box-sizing: border-box;
-            border: 1px solid;
-            border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-            border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-            border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
-            box-shadow: 0 0 8px 4px rgba(#fff, .2) inset;
-        }
-    }
-}
-
-.right-part {
-    width: 73%;
-    height: 100%;
-    // min-width: 1350px;
-    // background-color: rgb(203, 203, 203);
-    margin-left: 14px;
-
-    .top-part {
+    /* ***************************************** 左边图表 */
+    .left-chart {
+        width: 306px;
+        margin-right: 14px;
         display: flex;
+        flex-direction: column;
+    
+        .chart-bottom-corner-box, .chart-transformer-abnormal-data {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
 
+            #data-health, #transformer-abnormal-data {
+                width: 100%;
+                height: @echart-window-height;
+                box-sizing: border-box;
+                border: 1px solid;
+                border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
+                border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
+                border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
+                box-shadow: 0 0 8px 4px rgba(#fff, .2) inset;
+            }
+            #data-health {
+                    margin-bottom: 14px;
+            }
+        }
+    }
+
+    /* ***************************************** 中间图表 */
+    .center-chart {
+        flex: 1;
+        margin-right: 14px;
         .map {
-            width: 64%;
-            // min-width: 550px;
-            height: 794px;
-            // flex: 1;
-            margin-right: 14px;
+            // width: 100%;
+            // min-width: 350px;
+            height: 100%;
             box-sizing: border-box;
             border: 1px solid;
             border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
@@ -194,19 +219,20 @@ body {
 
             .calendar {
                 position: absolute;
-                top: 40px;
-                left: 30px;
+                top: 23px;
+                left: 17px;
                 z-index: 99;
 
                 span {
-                    font-size: 15px;
+                    font-size: 12px;
                     color: #c1edf8;
                 }
 
                 input {
-                    text-indent: 15px;
-                    width: 120px;
-                    height: 28px;
+                    font-size: 12px;
+                    text-indent: 9px;
+                    width: 100px;
+                    height: 18px;
                     box-sizing: border-box;
                     color: #fff;
                     border: 1px solid #19519b;
@@ -219,104 +245,144 @@ body {
                 width: 100%;
             }
         }
+    }
 
-        .aside-right {
-            .provincial-indicators {
-                margin-bottom: 14px;
-                position: relative;
-                
-                #provincial-indicators{
-                    width: 100%;
-                    height: 340px;
-                    box-sizing: border-box;
-                    border: 1px solid;
-                    border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-                    border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-                    border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
-                    box-shadow: 0 0 8px 4px rgba(#fff, .2) inset;
-                    display: flex;
-                }
+    /* ***************************************** 右边图表 */
+    .right-chart {
+        width: 306px;
+        display: flex;
+        flex-direction: column;
 
-                .calculated-rate{
-                    position: absolute;
-                    top: 100px;
-                    left: 95px;
-                    font-size: 20px;
-                    color: #90a5ba;
-                }
-                .compliance-rate{
-                    position: absolute;
-                    top: 100px;
-                    right: 105px;
-                    font-size: 20px;
-                    color: #90a5ba;
-                }
+        .provincial-indicators, .data-matching {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            #provincial-indicators{
+                width: 100%;
+                height: @echart-window-height;
+                box-sizing: border-box;
+                border: 1px solid;
+                border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
+                border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
+                border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
+                box-shadow: 0 0 8px 4px rgba(#fff, .2) inset;
             }
 
-            .data-matching {
-                margin-bottom: 14px;
-                table { // 表格固定布局
-                    table-layout: fixed;
-                    word-break: break-all; 
-                    word-wrap: break-word; 
-                }
+            .calculated-rate{
+                position: absolute;
+                top: 75px;
+                left: 55px;
+                font-size: 12px;
+                color: #90a5ba;
+            }
+            .compliance-rate{
+                position: absolute;
+                top: 75px;
+                right: 60px;
+                font-size: 12px;
+                color: #90a5ba;
+            }
 
-                #data-matching{
+            table { // 表格固定布局
+                table-layout: fixed;
+                word-break: break-all; 
+                word-wrap: break-word; 
+            }
+
+            #data-matching{
+                width: 100%;
+                height: @echart-window-height;
+                box-sizing: border-box;
+                border: 1px solid;
+                border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
+                border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
+                border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
+                box-shadow: 0 0 8px 1px rgba(#fff, .2) inset;
+                padding: 15px 15px;
+
+                #data-matching-table{
+                    text-align: center;
                     width: 100%;
-                    height: 340px;
-                    box-sizing: border-box;
-                    border: 1px solid;
-                    border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-                    border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
-                    border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
-                    box-shadow: 0 0 8px 1px rgba(#fff, .2) inset;
-                    padding: 40px 35px;
+                    height: 100%;
+                    font-size: 12px;
 
-                    #data-matching-table{
-                        text-align: center;
-                        min-width: 325px;
-                        width: 447px;
-                        // border: 1px solid #fff;
-                        font-size: 16px;
+                    thead {
+                        width: 119px;
+                    }
+                    thead tr {
+                        // height: 50%;
+                        color: #90a5ba;
+                    }
 
-                        thead {
-                            width: 119px;
-                        }
-                        thead tr {
-                            height: 44px;
-                            color: #90a5ba;
-                        }
+                    tbody tr {
+                        // height: 35%;
+                    }
 
-                        tbody tr {
-                            height: 71px;
-                        }
-
-                        tbody tr > td:nth-child(1){
-                            color: #90a5ba;
-                        }
-                        tbody tr > td:nth-child(2){
-                            color: #20939a;
-                        }
-                        tbody tr > td:nth-child(3){
-                            color: #1395eb;
-                        }
-                        tbody tr > td:nth-child(4){
-                            color: #fd2800;
-                        }
+                    tbody tr > td:nth-child(1){
+                        color: #90a5ba;
+                    }
+                    tbody tr > td:nth-child(2){
+                        color: #20939a;
+                    }
+                    tbody tr > td:nth-child(3){
+                        color: #1395eb;
+                    }
+                    tbody tr > td:nth-child(4){
+                        color: #fd2800;
                     }
                 }
             }
         }
+
+        .provincial-indicators {
+            margin-bottom: 14px;
+            position: relative;
+        }
     }
 
-    .bottom-part {
-        .all-units {
-            .title {
+}
+
+/* ***************************************** 上部分 */
+.bottom-part {
+    flex: 1;
+    display: flex;
+
+    /* ***************************************** 左边图表 */
+    .left-chart {
+        width: 306px;
+        margin-right: 14px;
+
+        .chart-transmission-line-abnormal-data {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            #transmission-line-abnormal-data {
                 width: 100%;
+                height: @echart-window-height;
+                box-sizing: border-box;
+                border: 1px solid;
+                border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
+                border-image: -moz-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
+                border-image: linear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;
+                box-shadow: 0 0 8px 4px rgba(#fff, .2) inset;
             }
+        }
+    }
+
+    /* ***************************************** 右边图表 */
+    .right-chart {
+        flex: 1;
+
+        .all-units {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
             #all-units{
                 width: 100%;
-                height: 340px;
+                height: @echart-window-height;
                 box-sizing: border-box;
                 border: 1px solid;
                 border-image: -webkit-inear-gradient( 30deg, #12509b, #5d8282, #12509b) 30 30;;
