@@ -356,7 +356,7 @@ $(function () {
             series: [
             {
                 type: 'gauge',
-                center: ["25%", "60%"], // 仪表位置
+                center: ["25%", "68%"], // 仪表位置
                 startAngle: 180,
                 endAngle: 0,
                 min: 0,
@@ -461,7 +461,7 @@ $(function () {
             },
             {
                 type: 'gauge',
-                center: ["75%", "60%"], // 仪表位置
+                center: ["75%", "68%"], // 仪表位置
                 startAngle: 180,
                 endAngle: 0,
                 min: 0,
