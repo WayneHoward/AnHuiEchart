@@ -13,7 +13,7 @@ $(function () {
                 textStyle: {
                     fontWeight: "normal",
                     color: "#6087a6",
-                    fontSize: 14
+                    fontSize: 10
                 }
             },
             // tooltip: {
@@ -30,7 +30,7 @@ $(function () {
                 left: 'center',
                 textStyle: { //图例文字的样式
                     color: '#989a99',
-                    fontSize: 10
+                    fontSize: 8
                 },
                 icon: 'rect', // 图例形状
                 itemWidth: 10, // 图例图形宽度
@@ -56,7 +56,7 @@ $(function () {
                 hoverAnimation: false,
                 center: ["50%", "45%"],
                 data: [{
-                        value: unFinished, // 未达标
+                        value: 100 - finished, // 未达标
                         name: "未达标",
                         itemStyle: {
                             normal: {
@@ -75,7 +75,7 @@ $(function () {
                                 position: "center",
                                 show: true,
                                 textStyle: {
-                                    fontSize: "22",
+                                    fontSize: "16",
                                     fontWeight: "bold",
                                     color: "#6087a6"
                                 },
@@ -130,7 +130,7 @@ $(function () {
                 // selected: data.selected,
                 textStyle: { //图例文字的样式
                     color: '#999999',
-                    fontSize: 10
+                    fontSize: 8
                 },
             },
             color : [ '#20939a', '#2bb2ae', '#f98963', '#162c44', '#e04555', '#96ed7c', '#8088ea', '#3ba372', '#c180e6', '#1395eb', '#feda52'],
@@ -148,7 +148,7 @@ $(function () {
                             padding: [0, -20],
                             textStyle: {
                                 fontWeight: 300,
-                                fontSize: 10, //文字的字体大小
+                                fontSize: 8, //文字的字体大小
                                 color: '#fff'
                             },
                         },
@@ -212,8 +212,8 @@ $(function () {
                 // realtime: false, // 拖拽时，是否实时更新
                 align: 'auto',
                 hoverLink: true, // 鼠标悬浮到 visualMap 组件上时，鼠标位置对应的数值 在 图表中对应的图形元素，会高亮
-                itemWidth: '12%',
-                itemHeight: '200%',
+                itemWidth: '8%',
+                itemHeight: '160%',
                 bottom: 20,
                 inRange: {
                     color: ['#3bb4ab', '#529277', '#f49102', '#ff0d00'],
@@ -335,6 +335,19 @@ $(function () {
         };
         mapDisplay.setOption(mapDisplayOption);
     });
+
+    let exitFullBtn = document.getElementById('exitFull');
+    let fullBtn = document.getElementById('full');
+    // 退出全屏
+    exitFullBtn.onclick = function(){
+        exitFullBtn.style.display = 'none';
+        fullBtn.style.display = 'block';
+    }
+    // 点击全屏
+    fullBtn.onclick = function(){
+        exitFullBtn.style.display = 'block';
+        fullBtn.style.display = 'none';
+    }
 
     // 全省指标情况
     let provincialIndicators = echarts.init(document.getElementById('provincial-indicators'));
@@ -639,7 +652,7 @@ $(function () {
                             padding: [0, -20],
                             textStyle: {
                                 fontWeight: 300,
-                                fontSize: 10, //文字的字体大小
+                                fontSize: 8, //文字的字体大小
                                 color: '#fff'
                             },
                         },

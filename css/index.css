@@ -176,11 +176,13 @@ body {
   border-image: linear-gradient(30deg, #12509b, #5d8282, #12509b) 30 30;
   box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.2) inset;
   position: relative;
+  /* 日期组件 */
+  /* 全屏、退出全屏按钮 */
 }
 .top-part .center-chart .map .calendar {
   position: absolute;
-  top: 23px;
-  left: 17px;
+  top: 20px;
+  left: 15px;
   z-index: 99;
 }
 .top-part .center-chart .map .calendar span {
@@ -189,13 +191,37 @@ body {
 }
 .top-part .center-chart .map .calendar input {
   font-size: 12px;
-  text-indent: 9px;
-  width: 100px;
+  text-indent: 4px;
+  width: 75px;
   height: 18px;
+  display: inline-block;
+  padding: 2px;
   box-sizing: border-box;
   color: #fff;
   border: 1px solid #19519b;
   background-color: rgba(0, 0, 0, 0);
+}
+.top-part .center-chart .map button {
+  border: none;
+  right: 15px;
+  top: 20px;
+  position: absolute;
+  outline: none;
+  width: 18px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  z-index: 99;
+}
+.top-part .center-chart .map #full {
+  background-image: url('../images/fullScreen.png');
+  display: none;
+}
+.top-part .center-chart .map #exitFull {
+  background-image: url('../images/winScreen.png');
 }
 .top-part .center-chart .map #map-display {
   height: 100%;

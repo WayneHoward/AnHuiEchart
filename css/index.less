@@ -218,10 +218,11 @@ body {
             box-shadow: 0 0 8px 1px rgba(#fff, .2) inset;
             position: relative;
 
+            /* 日期组件 */
             .calendar {
                 position: absolute;
-                top: 23px;
-                left: 17px;
+                top: 20px;
+                left: 15px;
                 z-index: 99;
 
                 span {
@@ -231,14 +232,42 @@ body {
 
                 input {
                     font-size: 12px;
-                    text-indent: 9px;
-                    width: 100px;
+                    text-indent: 4px;
+                    width: 75px;
                     height: 18px;
+                    display: inline-block;
+                    padding: 2px;
                     box-sizing: border-box;
                     color: #fff;
                     border: 1px solid #19519b;
                     background-color: rgba(0, 0, 0, 0);
                 }
+            }
+
+            /* 全屏、退出全屏按钮 */
+            button {
+                border: none;
+                right: 15px;
+                top: 20px;
+                position: absolute;
+                outline: none;
+                width: 18px;
+                height: 18px;
+                background-color: rgba(0, 0, 0, 0);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                // border-radius: 3px;
+                cursor: pointer;
+                z-index: 99;
+            }
+
+            #full {
+                background-image: url('./../images/fullScreen.png');
+                display: none;
+            }
+            #exitFull {
+                background-image: url('./../images/winScreen.png');
             }
 
             #map-display {
