@@ -666,9 +666,9 @@ $(function () {
         let allUnitsOption = {
             grid: {
                 left: '5%',
-                right: '2%',
+                right: '10%',
                 top: '12%',
-                bottom: '25%'
+                bottom: '25%',
             },
             tooltip: {
                 // trigger: 'axis',
@@ -677,11 +677,14 @@ $(function () {
                 // }
             },
             legend: {
+                orient: 'vertical',
                 itemHeight: 10,
                 itemWidth: 10,
-                bottom: '5%',
+                // x: 'right', // 可设定图例在左、右、居中
+                y: 'center', // 可设定图例在上、下、居中
+                right: '2%',
                 textStyle: {  // 图列内容样式
-                    fontSize: 12,
+                    fontSize: 8,
                     color: '#90a5ba',  // 字体颜色
                     // backgroundColor: 'black'  // 字体背景色
                 },
@@ -726,7 +729,11 @@ $(function () {
                 axisTick: {    // 坐标轴 刻度
                     show: false,  // 是否显示
                 },
-
+                axisLabel: {  
+                    interval: 0,  // 坐标轴刻度标签的显示间隔（隔几个显示1个标签）
+                    rotate: 40, // 旋转角度
+                    fontSize: 8,
+                },
                 data: res.date
             },
             yAxis: {
@@ -736,8 +743,11 @@ $(function () {
                     lineStyle: {
                         color: '#90a5ba',
                         width: 1,
-                        type: 'solid'
-                    }
+                        type: 'solid',
+                    },
+                },
+                axisLabel: {  
+                    fontSize: 8,
                 },
                 splitLine: {
                     show: true,
@@ -760,21 +770,23 @@ $(function () {
                     barGap: '0%',//柱图间距
                     data: res.calculatedRate, 
                     label: {
-                        show: true,
+                        show: false,
                         position: 'insideTop',
                         formatter: '{c}%',
+                        // fontSize: 7,
                     },
                 },
                 {  
                     barWidth: '32%',
                     name: '达标率',  
                     barGap: '0%', // 柱图间距
-                    type: 'bar',  
+                    type: 'bar',
                     data: res.complianceRate,
                     label: {
-                        show: true,
+                        show: false,
                         position: 'insideTop',
                         formatter: '{c}%',
+                        // fontSize: 7,
                     },
                 },
             ]
